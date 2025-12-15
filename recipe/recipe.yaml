@@ -40,7 +40,7 @@ requirements:
     - pip
   run:
     - if: is_abi3
-      then: python >=${{ python_min }}.*
+      then: python >=${{ python_min }}
       else: python
 
 tests:
