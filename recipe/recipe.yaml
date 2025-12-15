@@ -13,7 +13,7 @@ source:
   sha256: 5ee10c99ca444b3689a8695542a4421426b9a0b0c778ad447a48bf33159d313c
 
 build:
-  number: 0
+  number: 1
   script:
     - sed -i.bak 's/features = \[/features = \["abi3", /g' Cargo.toml
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -40,7 +40,7 @@ requirements:
     - pip
   run:
     - if: is_abi3
-      then: python ${{ python_min }}.*
+      then: python >=${{ python_min }}.*
       else: python
 
 tests:
