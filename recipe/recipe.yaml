@@ -13,7 +13,7 @@ source:
   sha256: ead83052507c5a28615ecd9d877806793cca34917a0fe5d29957310b8e120507
 
 build:
-  number: 1
+  number: 2
   script:
     - sed -i.bak 's/features = \[/features = \["abi3", /g' Cargo.toml
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
