@@ -5,12 +5,19 @@
 jobs:
 - job: osx
   pool:
-    vmImage: macOS-15
+    vmImage: $(VMIMAGE)
   strategy:
     matrix:
-      osx_64_:
-        CONFIG: osx_64_
+      osx_64_is_abi3false:
+        CONFIG: osx_64_is_abi3false
         UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+        store_build_artifacts: false
+      osx_64_is_abi3true:
+        CONFIG: osx_64_is_abi3true
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+        store_build_artifacts: false
   timeoutInMinutes: 360
   variables: {}
 
