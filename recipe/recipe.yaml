@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: fastdigest
-  version: "0.9.2"
+  version: "0.13.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/fastdigest-${{ version }}.tar.gz
-  sha256: ead83052507c5a28615ecd9d877806793cca34917a0fe5d29957310b8e120507
+  sha256: d6c335cd5b17d82cbeb16adbe3817ba98e19d88570c30a4a2d27c37df4cf7543
 
 build:
-  number: 1
+  number: 0
   script:
     - sed -i.bak 's/features = \[/features = \["abi3", /g' Cargo.toml
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
